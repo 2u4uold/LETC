@@ -1,8 +1,8 @@
 # LETC Objects
 ## Simple objects
 * [Div container](#div-container)
-* Text block
-* SVG icon
+* [Text block](#text-block)
+* [SVG icon](#svg-icon)
 * SVG icon with text
 * Input
 
@@ -23,7 +23,7 @@ Object, which can contain other objects
 |kids |Array|Array of children elements|
 |kidsOpt |Object|Options which will be applied to all children elements (Common attributes)|
 |sys_pn |String |Name of region, can be feeded with children elements. Allows to have access to container element|
-|__other common attributes__| | |
+|[__other common attributes__](#common-attributes)| | |
 
 #### Example
     a =
@@ -53,7 +53,7 @@ Alternative variant of defining container is **SKL_Box_H/SKL_Box_V**. Has two at
 |2        |options   |Object | Defines additional attributes|
 |Inside 2 |kids    |Array |Array of children elements|
 |Inside 2 |sys_pn       |region name to find container. can be feeded with new content|
-|Inside 2 |kidsOpt    |Options which will be applied to all kids (mostly all __common attributes__ can be used|
+|Inside 2 |kidsOpt    |Options which will be applied to all kids (mostly all [__common attributes__](#common-attributes) can be used|
 
 Example above can be written whit way
 
@@ -81,8 +81,8 @@ Allows to create any text objects
 |---|---|---|
 |kind |"note"|Defines text object|
 |content |String|Text|
-|__other common attributes__| | |
-|__other low level objects attributes| | |
+|[__other common attributes__](#common-attributes)| | |
+|[__other low level objects attributes__](#low-level-objects-attributes)| | |
 
 #### Example
     a =
@@ -95,7 +95,7 @@ Alternative variant of defining text is **SKL_Note**.
 #### Attributes:
 |Attribute order  |Type |Possible values |Explanation |
 |---|---|---|---|
-|1      |service    |String|Service name (see __common attributes__)|
+|1      |service    |String|Service name (see [__common attributes__](#common-attributes))|
 |2      |text       |String|Any text|
 |3      |options    |Object |Defines additional attributes|
 
@@ -116,8 +116,8 @@ Allows to create svg icon
 |---|---|---|
 |kind |"image_svg"|Defines svg icon object|
 |chartId |String|Icon name|
-|__other common attributes__| | |
-|__other low level objects attributes| | |
+|[__other common attributes__](#common-attributes)| | |
+|[__other low level objects attributes__](#low-level-objects-attributes)| | |
 
 #### Example
     a =
