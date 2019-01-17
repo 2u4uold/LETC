@@ -1,6 +1,6 @@
 # LETC Objects
 ## Simple objects
-* Div container
+* [Div container](#div-container)
 * Text block
 * SVG icon
 * SVG icon with text
@@ -147,21 +147,22 @@ Alternative variant of defining text is **SKL_SVG**.
 To be continued
 
 #### Common Attributes
-|Name         |Type       |
-|---          |---        |
-|className    |           |
-|type         |           |
-|name         |           |
-|service      |           |
-|signal       |           |
-|handler      |           |
-|styleOpt||
-|anim||
-|flow||
+|Name |Possible values|Explanation|
+|---          |---        |---|
+|className    |String|Any css class|
+|styleOpt|Object|Object containaing any css. Will be used as inline css|
+|anim|Object|Defines animation appearance of object|
+|type         |String|Additional field to pass extra information mostly|
+|name         |String|Additional field to pass extra information mostly|
+|service|String||
+|signal|String||
+|handler|Object||
+|mapName|Object||
 
 #### Low level objects attributes
-|Name         |Type       |
-|---          |---        |
-|radio        |           |
-|state        |           |
-|radiotoggle  |           |
+|Name |Possible values|Explanation|
+|---          |---        |---|
+|radio        |String|Works as radio button. Should be set to a number of objects (group). Only one will have __data-radio="on"__, others would have __off__|
+|state        |Boolean|Works and checkbox. Then value willl be set to objects data-state|
+|radiotoggle  |String|Can work both like radio button and checkbox. When clicked becomes __on__, second click makes it __off__, click on another object with same name, sets __off__ to all others|
+|initialState |1|Defines initial state of state attribute for element|
