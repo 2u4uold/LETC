@@ -82,6 +82,7 @@ Allows to create any text objects
 |kind |"note"|Defines text object|
 |content |String|Text|
 |__other common attributes__| | |
+|__other low level objects attributes| | |
 
 #### Example
     a =
@@ -106,7 +107,44 @@ Alternative variant of defining text is **SKL_Note**.
 
 __service__ can be written both as first attribute or as part of Options attribute
 
-To be continued 
+### SVG icon
+
+Allows to create svg icon
+
+#### Unique attributes:
+|Name |Possible values|Explanation|
+|---|---|---|
+|kind |"image_svg"|Defines svg icon object|
+|chartId |String|Icon name|
+|__other common attributes__| | |
+|__other low level objects attributes| | |
+
+#### Example
+    a =
+        kind: "image_svg"
+        chartId: "arrow-left"
+        service: "turn-left"
+
+Alternative variant of defining text is **SKL_SVG**.
+
+#### Attributes:
+|Attribute order  |Type |Possible values |Explanation |
+|---|---|---|---|
+|1      |text    |String|Icon name|
+|2      |options    |Object |Defines additional attributes|
+|3      |size    |{<p>width: 40,</p><p>height: 40,</p><p>padding: 10</p> }|Object which contains width, height and padding of icon.|
+
+#### Example
+    SKL_SVG("arrow-left, {
+        className: "header"
+        service: "open-list"
+    }, {
+        width: 35
+        height: 20
+        padding: 12
+    })
+
+To be continued
 
 #### Common Attributes
 |Name         |Type       |
@@ -118,8 +156,10 @@ To be continued
 |signal       |           |
 |handler      |           |
 |styleOpt||
+|anim||
+|flow||
 
-#### Common Attributes 2
+#### Low level objects attributes
 |Name         |Type       |
 |---          |---        |
 |radio        |           |
