@@ -1,28 +1,61 @@
-# Objects
+# LETC Objects
 ## Simple objects
-* Div container (SKL_Box_H/SKL_Box_V)
-* Text block (SKL_Note)
-* SVG icon (SKL_SVG)
-* SVG icon with text (SKL_SVG_Label)
-* Input (SKL_Entry) - there is one more possible
+* Div container
+* Text block
+* SVG icon
+* SVG icon with text
+* Input
 
 ## Complex objects
-* Scrollable list (_t.list.stream)
+* Scrollable list
 * Menu
+* Form
 
-### Text block (SKL_Box_H/SKL_Box_V)
-SKL_Box_H - has flex-direction: row style, which makes all children to be in one horizontal line 
+### Div container
 
-SKL_Box_V - has flex-direction: column style, which makes all children to be in one vertical line 
+Object, which can contain other objects
+
+#### Unique attributes:
+|Name |Possible values|Explanation|
+|---|---|---|
+|kind |"box"|Defines container object|
+|flow |"vertical"/"horizontal"|Vertical or horizontal direction of children elements|
+|kids |Array|Array of children elements|
+|kidsOpt |Object|Options which will be applied to all children elements (Common attributes)|
+|sys_pn |String |Name of region, can be feeded with children elements. Allows to have access to container element|
+|__other common attributes__| | |
+
+#### Example
+    a =
+        kind: "box"
+        flow: "horizontal"
+        className: "block"
+        kidsOpt  :
+            radio: "radio-group"
+        kids: [
+            SKL_Note(null, "Block header, {
+                className: "header"
+            })
+            SKL_Note(null, "Block subheader, {
+                className: "header"
+            })
+        ]
+
+Alternative variant of defining container is **SKL_Box_H/SKL_Box_V**. Has two attributes.
+* SKL_Box_H - has __flex-direction: row__ style, which makes all children to be in one horizontal line 
+* SKL_Box_V - has __flex-direction: column__ style, which makes all children to be in one vertical line 
+
 
 #### Attributes:
-|Order  |Type       |       |
-|---|---|---|
-|1        |context    | (manager, view) |
-|2        |options   |    |
-|N/A      |kids    |inner content of container|
-|N/A      |sys_pn       |region name to find container. can be feeded with new content|
-|N/A      |kidsOpt    |Options which will be applied to all kids (mostly all common attributes can be used|
+|Attribute order  |Type |Possible values |Explanation |
+|---|---|---|---|
+|1        |context    | (manager, view) | |
+|2        |options   |Object | Defines additional attributes|
+|Inside 2 |kids    |Array |Array of children elements|
+|Inside 2 |sys_pn       |region name to find container. can be feeded with new content|
+|Inside 2 |kidsOpt    |Options which will be applied to all kids (mostly all __common attributes__ can be used|
+
+Example above can be written whit way
 
 #### Example
     SKL_Box_H(manager, {
@@ -39,43 +72,41 @@ SKL_Box_V - has flex-direction: column style, which makes all children to be in 
         ]
     })
 
-Also can be written wihtout SKL.
+### Text block
+
+Allows to create any text objects
+
+#### Unique attributes:
+|Name |Possible values|Explanation|
+|---|---|---|
+|kind |"note"|Defines text object|
+|content |String|Text|
+|__other common attributes__| | |
 
 #### Example
-
     a =
-        kind: _t.box
-        flow: _a.horizontal
-        className: "block"
-        kidsOpt  :
-            radio: "radio-group"
-        kids: [
-            SKL_Note(null, "Block header, {
-                className: "header"
-            })
-            SKL_Note(null, "Block subheader, {
-                className: "header"
-            })
-        ]
-     
-Where **_t.box** defines div container, and **flow** defines flex-direction
+        kind: "note"
+        content: "Block header"
+        className: "header"
 
-
-### Text block (SKL_Note)
-If you want to create simple text block you need to use **SKL_Note**.
+Alternative variant of defining text is **SKL_Note**.
 
 #### Attributes:
-|Order  |Type       |Place to define      |Default|
+|Attribute order  |Type |Possible values |Explanation |
 |---|---|---|---|
-|1      |service    |First level attribute|null   |
-|2      |text       |First level attribute|"base" |
-|3      |options    |First level attribute|null   |
+|1      |service    |String|Service name (see __common attributes__)|
+|2      |text       |String|Any text|
+|3      |options    |Object |Defines additional attributes|
 
 #### Example
     SKL_Note(null, "Block header, {
         className: "header"
         service: "open-list"
     })
+
+__service__ can be written both as first attribute or as part of Options attribute
+
+To be continued 
 
 #### Common Attributes
 |Name         |Type       |
@@ -86,6 +117,7 @@ If you want to create simple text block you need to use **SKL_Note**.
 |service      |           |
 |signal       |           |
 |handler      |           |
+|styleOpt||
 
 #### Common Attributes 2
 |Name         |Type       |
