@@ -166,3 +166,6 @@ To be continued
 |state        |Boolean|Works and checkbox. Then value willl be set to objects data-state|
 |radiotoggle  |String|Can work both like radio button and checkbox. When clicked becomes __on__, second click makes it __off__, click on another object with same name, sets __off__ to all others|
 |initialState |1|Defines initial state of state attribute for element|
+|preselect |1|Forces input to be focused by default|
+|active |1|Allows the object to be sensitive to user event (mouse + keyboard)|
+|bubble |1|Allows any object inside form to work with own ui events|
